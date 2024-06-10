@@ -71,7 +71,7 @@ exports.employeeRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0,
         const employee = req.body;
         const result = yield ((_e = database_1.collections === null || database_1.collections === void 0 ? void 0 : database_1.collections.employees) === null || _e === void 0 ? void 0 : _e.insertOne(employee));
         if (result === null || result === void 0 ? void 0 : result.acknowledged) {
-            res.status(201).send(`Created a new employee: ID ${result.insertedId}.`);
+            res.status(201).send(`Created a new employee: ID${result.insertedId}.`);
         }
         else {
             res.status(500).send("Failed to create a new employee.");
@@ -79,7 +79,8 @@ exports.employeeRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0,
     }
     catch (error) {
         console.error(error);
-        res.status(400).send(error instanceof Error ? error.message : "Unknown error");
+        res.status(400).send(error instanceof Error ?
+            error.message : "Unknown error");
     }
 }));
 exports.employeeRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
